@@ -1,25 +1,8 @@
-// 1. Abfrage des Bitcoin-Preises von der Börse.
-// 2. Erstellung von Variablen.
-// 3. Abfrage der Auswahl im Dropdown-Menü.
-// 4. Auswahl eines zufälligen Produkts bei Betätigung des Buttons.
-// 5. Hinzufügen von Produkten.
-
-// Bro, it works. I have no idea why, lol. Most likely, it's my trashiest code ever, haha. I can't even figure out how it works myself...
-// Bro, it works. I have no idea why, lol. Most likely, it's my trashiest code ever, haha. I can't even figure out how it works myself...
-// If you’re planning to "steal" the code, I advise you against it. Not because it doesn’t work, but because it’s a disaster and you can probably write it much more efficiently yourself.
-// Bro, it works. I have no idea why, lol. Most likely, it's my trashiest code ever, haha. I can't even figure out how it works myself...
-// Bro, it works. I have no idea why, lol. Most likely, it's my trashiest code ever, haha. I can't even figure out how it works myself...
-
-/* ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────┐ */
-/* │             ___     _  __      ___         _           _      _    ____  _      _       _       _          │ */
-/* │    _   _   / / |   (_)/ _| ___|_ _|___    | |_   _ ___| |_   / \  / ___|(_) ___| | __  | | ___ | | _____   │ */
-/* │   | | | | / /| |   | | |_ / _ \| |/ __|_  | | | | / __| __| / _ \ \___ \| |/ __| |/ /  | |/ _ \| |/ / _ \  │ */
-/* │   | |_| |/ / | |___| |  _|  __/| |\__ \ |_| | |_| \__ \ |_ / ___ \ ___) | | (__|   < |_| | (_) |   <  __/  │ */
-/* │    \__,_/_/  |_____|_|_|  \___|___|___/\___/ \__,_|___/\__/_/   \_\____/|_|\___|_|\_\___/ \___/|_|\_\___|  │ */
-/* │                                                                                                            │ */
-/* └────────────────────────────────────────────────────────────────────────────────────────────────────────────┘ */
-
-
+// 1. Retrieving the Bitcoin price from the exchange.
+// 2. Initializing variables.
+// 3. Obtaining the selection from the dropdown menu.
+// 4. Randomly selecting a product upon button activation.
+// 5. Adding products to the list.
 
 // BTC Price Kraken https://api.kraken.com/0/public/Ticker?pair=XBTEUR
 
@@ -228,187 +211,42 @@ function counter(id, start, end) {
 
 counter("betrag", randomProduct.originalPreis, parseFloat(randomProduct.bitcoinAmount * btcPrice));
 
-// Counter animation second try
-
- /*    // console.log(betrag, randomProduct.originalPreis, euroWertWenn)
-    let counterFix = 1;
-
-    // Counter animation second try
-    function counter(id, start, end) {
-        let obj = document.getElementById(id);
-        let current = start;
-
-        // nO iDEA lOL, THIS WORKS kINda...
-        let incrementBugFix;
-        if (end <= 10) {
-            incrementBugFix = 21;
-        } else {
-            incrementBugFix = 100;
-        };
-
-        let increment = (end - start) / incrementBugFix;
-        let step = 0;
-
-        // console.log(increment);
-      
-        let timer = setInterval(function() {
-            current += increment;
-            // Start at 0
-            if (counterFix === 1) {
-                current = 0;
-                counterFix ++;
-            }
-
-            obj.innerText = 
-            current.toLocaleString(undefined, {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2
-            }) + " $";
-
-            // console.log(current);
-
-
-            if (current > end) {
-                // Fix increment counting to high
-                obj.innerText = current.toLocaleString("en-US", {
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 2
-                }) + " $";
-                clearInterval(timer);
-
-                // Animation is complete
-                button.disabled = false;
-                button.style.backgroundColor = 'rgba(247, 147, 26, 1)';
-            }
-        }, step);
-      }
-      
-      counter("betrag", randomProduct.originalPreis, parseFloat(randomProduct.bitcoinAmount * btcPrice));
- */
- /*      
-    // Counter animation first try
-    // Initial values
-    let currentValue = 0;
-    const targetValue = parseFloat(randomProduct.bitcoinAmount * btcPrice);
-    const duration = 1000; // 2000 milliseconds (2 seconds)
-    const steps = 50; // Number of steps for the animation
-    const stepValue = targetValue / steps;
-    let counterFix = 1;
-    // Set the initial value to 0 before starting the animation
-    betrag.innerText = "0 €";
-
-    function updateValue() {
-        currentValue = Math.min(targetValue, currentValue + stepValue);
-        if (counterFix === 1) {
-            currentValue = 0;
-            counterFix ++;
-        }
-        
-            betrag.innerText = currentValue.toLocaleString(undefined, {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2
-        }) + " €";
-        
-        if (currentValue < targetValue) {
-            setTimeout(updateValue, duration / steps);
-            
-        } else {
-            // Animation is complete
-            button.disabled = false;
-            button.style.backgroundColor = 'rgb(255, 59, 156)';
-        }
-    }
-
-    updateValue(); */
-
-
-    // console.log("test");
 };
 
 
 let buttonTextArray = [
     '"Bitcoin is too risky."',
-    '"Bitcoin is too volatile" (yes, to the upside)',
+    '"Bitcoin is too volatile" (yes, to the upside)"',
     '"Face the facts; I had to do it too!"',
     '"Bitcoin is worthless." Ok, give me one for free then."',
     '"Regretting won\'t change anything."',
     '"It\'s never too late."',
     '"Some just don\'t want to get it!"',
     '"But CNN told me Bitcoin is bad."',
-    '"But CNN told me Bitcoin is bad."',
-    '"But CNN told me Bitcoin is bad."',
     '"You just got lucky."',
     '"There is no second best." - Saylor"',
     '"Even Chuck Norris is impressed by this!"',
     '"I wish you had listened to me."',
     '"Some learn from mistakes; others not so much..."',
-    '"To each their own...',
+    '"To each their own..."',
     '"Do you want to continue ignoring it?"',
     '"When will you admit it to yourself?"',
     '"I think I screwed myself over..."',
     '"Will you keep turning a blind eye?"',
     '"Too unstable," they said..."',
-    '"Regret won’t buy you back those missed gains."',
-    '"But my newsfeed told me Bitcoin’s a scam."',
+    '"Regret wonâ€™t buy you back those missed gains."',
+    '"But my newsfeed told me Bitcoinâ€™s a scam."',
     '"Critics talk while the world moves forward."',
-    '"Critics talk while the world moves forward."',
-    '"Critics talk while the world moves forward."',
-    '"Critics talk while the world moves forward."',
-    '"Critics talk while the world moves forward."',
-    '"Even skeptics can’t ignore it forever!"',
+    '"Even skeptics canâ€™t ignore it forever!"',
     '"Did you really think it was just noise?"',
     '"When will you wake up to reality?"',
     '"Appreciate the lesson in missed chances."',
     '"Will you ever see the opportunity you ignored?"',
     '"The power of Bitcoin is in its idea."',
-    '"The power of Bitcoin is in its idea."',
-    '"The idea whose time has come cannot be stopped."',
-    '"The idea whose time has come cannot be stopped."',
     '"The idea whose time has come cannot be stopped."'
     
-    /*
-    '"Bitcoin doesn’t care about your comfort zone."',
-    '"Bitcoin is for everyone!"',
-    'Nobody forces you.',
-    '"Worthless garbage"',
-    '"Peter Schiff\'s ego killed him."',
-    'FCK the ECB',
-    'Warren "Bank Bailout" Buffett',
-    'Charlie "CCP" Munger',
-    'Jamie "Jeffrey Epstein\'s banker" Dimon',
-    'Christine "Guilty" Lagarde',
-    'What the...', 
-    '...',
-    'F@K ME...',
-    'IDGAF',
-    'No one\'s holding a gun to your head.',
-*/
-    
-
-
- /*    'Akzeptiere die Realität, auch wenn sie unangenehm ist.',
-    '"Bitcoin ist zu riskant."',
-    '"Bitcoin ist zu volatil" (ja, nach oben)',
-    'Stell dich den Tatsachen, ich musste es auch!',
-    '"Bitcoin ist wertlos."',
-    'Bereuen bringt nichts.',
-    'Es ist nie zu spät.',
-    'Bitcoin ist für alle da!',
-    'Manche <u>WOLLEN</u> es halt nicht verstehen!',
-    'Niemand zwingt dich im Gegensatz zum EURO.',
-    'Aber der ÖRR sagte doch, Bitcoin sei schlecht.',
-    '"Wertloser Dreck"',
-    'Entscheide dich, glücklich zu sein.',
-    'Träume groß, handle klug.',
-    'Hör auf zu reden, fang an zu handeln.',
-    'Lass dich nicht von Negativität beeinflussen.',
-    'Erfolg ist kein Glück, sondern harte Arbeit.',
-    'Gib niemals auf, große Dinge brauchen Zeit.',
-    'Handle mit Absicht, nicht aus Angst.',
-    'Lebe das Leben, das du liebst.',
-    'Thomas von Finanzfluss ist ein Heuchler...',
-    'Wirf den Geldrucker an, wir müssen einen Krieg starten.' */
 ];
+
 
 
 let consoles = [
