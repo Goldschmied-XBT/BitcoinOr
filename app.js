@@ -6,10 +6,10 @@
 
 // BTC Price Kraken https://api.kraken.com/0/public/Ticker?pair=XBTEUR
 
-// Declare btcPrice in an outer scope
+// Declare btcPrice
 let btcPrice;
 
-// Function to fetch data/BTC Price in EUR from Kraken API
+// Function to fetch data/BTC Price in USD from Kraken API
 async function fetchData() {
     try {
         const response = await fetch('https://api.kraken.com/0/public/Ticker?pair=XBTUSD');
@@ -170,9 +170,7 @@ function buttonPress() {
 /*     text3.innerHTML = "<p style='margin-bottom: 15px;'><b>Mit anderen Worten: </b></p>Für " + randomProductOriginalPreis + "€ hättest du damals ~ " + satsMenge + " sats (~ " + btcMenge + " Bitcoin)<br> erwerben können, heute bekommst du für den gleichen Betrag 'nur' noch <br>~ " + buyingPowerTodaySats + " sats,  (~ " + buyingPowerTodayBTC + " Bitcoin), das sind " + lessInPercent + " % weniger. <br> Also 'nur' "  + inPercent + " % im verleich zu damals.";
  */    
 
-
 // console.log(betrag, randomProduct.originalPreis, euroWertWenn)
-
 
 // Counter animation third try
 function counter(id, start, end) {
