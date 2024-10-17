@@ -74,11 +74,9 @@ function buttonPress() {
     let randombuttonText = Math.floor(Math.random() *buttonTextArray.length);
     buttonText.innerHTML = buttonTextArray[randombuttonText];
 
-
     console.log(randombuttonText);
     // Variabeln
     const randomProductArray = [];
-
 
     // If BTC != 100K disable family toggle
     if (btcPrice < 100_000) {

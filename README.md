@@ -1,2 +1,2 @@
 # BitcoinOrShit
- Bitcoin or shit, it's your choice!
+Bitcoin or shit, it's your choice!
