@@ -18,24 +18,24 @@ async function fetchData() {
         // Check if the API request was successful
         if (data.error && data.error.length > 0) {
             throw new Error(data.error[0]);
-             // Set a default value in case of an error
+            // Set a default value in case of an error
         }
 
         // Extract the last trade price (ask) from the API response
         btcPrice = data.result.XXBTZUSD.a[0];
         /* console.log(btcPrice);
         btcPrice = 80000;*/
-        console.log(btcPrice); 
+        console.log(btcPrice);
 
         // Log the btcPrice to the console and print it On screen
         // console.log('BTC Price:', btcPrice);
-        
+
         let liveBTCPrice = document.getElementById("liveBTCPrice");
-        let formatedBTCPrice = parseFloat(btcPrice).toLocaleString("en-US", { 
+        let formatedBTCPrice = parseFloat(btcPrice).toLocaleString("en-US", {
             minimumFractionDigits: 2,
-            maximumFractionDigits: 2 
+            maximumFractionDigits: 2
         });
-        
+
         liveBTCPrice.innerText = "Bitcoin / Euro: " + formatedBTCPrice + " $";
 
         // console.log(typeof formatedBTCPrice);
@@ -71,7 +71,7 @@ function buttonPress() {
     button.style.backgroundColor = 'rgba(247, 147, 26, 0.5)';
     tooltip.style.visibility = 'visible';
 
-    let randombuttonText = Math.floor(Math.random() *buttonTextArray.length);
+    let randombuttonText = Math.floor(Math.random() * buttonTextArray.length);
     buttonText.innerHTML = buttonTextArray[randombuttonText];
 
     console.log(randombuttonText);
@@ -88,11 +88,11 @@ function buttonPress() {
     if (!document.getElementById('arrayConsoles').checked && !document.getElementById('arraySmartphones').checked && !document.getElementById('arrayDiverses').checked && !document.getElementById('arrayFamily').checked && !document.getElementById('arrayCars').checked && !document.getElementById('arrayWhat').checked) {
         console.log("test1111");
         document.getElementById('arrayDiverses').checked = true;
-/*         document.getElementById('arrayWhat').checked = true;
- */        
+        /*         document.getElementById('arrayWhat').checked = true;
+         */
     }
-/*     console.log();
- */
+    /*     console.log();
+     */
 
     // Chcek checkbox selection
     if (document.getElementById('arrayConsoles').checked) {
@@ -109,28 +109,28 @@ function buttonPress() {
 
     if (document.getElementById('arrayFamily').checked) {
         randomProductArray.push(...familyStuff);
-    } 
+    }
 
     if (document.getElementById('arrayCars').checked) {
         randomProductArray.push(...cars);
-    } 
+    }
 
     if (document.getElementById('arrayWhat').checked) {
         randomProductArray.push(...what);
     }
 
     let randomMaximum = randomProductArray.length;
-    let randomIndex = Math.floor(Math.random() *randomMaximum);
+    let randomIndex = Math.floor(Math.random() * randomMaximum);
     let randomProduct = randomProductArray[randomIndex];
     let btcMenge = randomProduct.bitcoinAmount.toLocaleString("en-US");
     // Ohne und mit tausender Punkte
     let satsMenge = (randomProduct.bitcoinAmount * 100000000).toLocaleString("en-US");
     let satsMenge2 = (randomProduct.bitcoinAmount * 100000000);
-    let euroWertWenn = parseFloat(randomProduct.bitcoinAmount * btcPrice).toLocaleString(undefined, { 
+    let euroWertWenn = parseFloat(randomProduct.bitcoinAmount * btcPrice).toLocaleString(undefined, {
         minimumFractionDigits: 2,
-        maximumFractionDigits: 2 
+        maximumFractionDigits: 2
     });
-    
+
     let randomProductBild = randomProduct.produktBild;
     let randomProductArtikel = randomProduct.artikel;
     let randomProductGegenstand = randomProduct.pruduktName;
@@ -138,13 +138,13 @@ function buttonPress() {
     let randomProductOriginalPreis = (randomProduct.originalPreis).toLocaleString("en-US");
     let randomProductOriginalPreis2 = (randomProduct.originalPreis);
     let randomProductreleaseDatum = randomProduct.releaseDatum;
-    let buyingPowerTodayBTC = (randomProductOriginalPreis2/btcPrice).toFixed(8);
+    let buyingPowerTodayBTC = (randomProductOriginalPreis2 / btcPrice).toFixed(8);
     // Ohne und mit tausender Punkte
     let buyingPowerTodaySats = parseInt((randomProductOriginalPreis2 / btcPrice) * 100000000).toLocaleString();
     let buyingPowerTodaySats2 = parseInt((randomProductOriginalPreis2 / btcPrice) * 100000000);
-    let lessInPercent = (((((satsMenge2 - buyingPowerTodaySats2) / satsMenge2)* 100).toFixed(2)).toLocaleString()).replace('.', ',');
-    let inPercent = ((((buyingPowerTodaySats2 / satsMenge2)* 100).toFixed(2)).toLocaleString()).replace('.', ',');
-    
+    let lessInPercent = (((((satsMenge2 - buyingPowerTodaySats2) / satsMenge2) * 100).toFixed(2)).toLocaleString()).replace('.', ',');
+    let inPercent = ((((buyingPowerTodaySats2 / satsMenge2) * 100).toFixed(2)).toLocaleString()).replace('.', ',');
+
     /* console.log(inPercent);
     console.log(typeof inPercent); */
 
@@ -160,52 +160,52 @@ function buttonPress() {
         bitcoinAmount.innerHTML = "" + satsMenge + " <span style='font-size: 12px;'> sats</span>";
     }
 
-    let percentChange = ((((btcPrice*randomProduct.bitcoinAmount) / randomProduct.originalPreis) *100 ) -100).toFixed(2);
+    let percentChange = ((((btcPrice * randomProduct.bitcoinAmount) / randomProduct.originalPreis) * 100) - 100).toFixed(2);
     console.log(percentChange);
 
-    releasePrice.innerHTML = "<b>Price:</b> "+ " $ " + randomProductOriginalPreis  + " " + "<u>(+ " + percentChange.replace(/\B(?=(\d{3})+(?!\d))/g, ',') + " %<u/>)";
+    releasePrice.innerHTML = "<b>Price:</b> " + " $ " + randomProductOriginalPreis + " " + "<u>(+ " + percentChange.replace(/\B(?=(\d{3})+(?!\d))/g, ',') + " %<u/>)";
     releaseDate.innerHTML = "<b>Date:</b> " + randomProductreleaseDatum;
-/*     text3.innerHTML = "<p style='margin-bottom: 15px;'><b>Mit anderen Worten: </b></p>Für " + randomProductOriginalPreis + "€ hättest du damals ~ " + satsMenge + " sats (~ " + btcMenge + " Bitcoin)<br> erwerben können, heute bekommst du für den gleichen Betrag 'nur' noch <br>~ " + buyingPowerTodaySats + " sats,  (~ " + buyingPowerTodayBTC + " Bitcoin), das sind " + lessInPercent + " % weniger. <br> Also 'nur' "  + inPercent + " % im verleich zu damals.";
- */    
+    /*     text3.innerHTML = "<p style='margin-bottom: 15px;'><b>Mit anderen Worten: </b></p>Für " + randomProductOriginalPreis + "€ hättest du damals ~ " + satsMenge + " sats (~ " + btcMenge + " Bitcoin)<br> erwerben können, heute bekommst du für den gleichen Betrag 'nur' noch <br>~ " + buyingPowerTodaySats + " sats,  (~ " + buyingPowerTodayBTC + " Bitcoin), das sind " + lessInPercent + " % weniger. <br> Also 'nur' "  + inPercent + " % im verleich zu damals.";
+     */
 
-// console.log(betrag, randomProduct.originalPreis, euroWertWenn)
+    // console.log(betrag, randomProduct.originalPreis, euroWertWenn)
 
-// Counter animation third try
-function counter(id, start, end) {
-    let obj = document.getElementById(id);
-    let current = start;
+    // Counter animation third try
+    function counter(id, start, end) {
+        let obj = document.getElementById(id);
+        let current = start;
 
-    let duration = 600; // Time in milliseconds for animation
-    let steps = 60; // Number of steps for animation
+        let duration = 600; // Time in milliseconds for animation
+        let steps = 60; // Number of steps for animation
 
-    let increment = (end - start) / steps;
-    let stepDuration = duration / steps;
+        let increment = (end - start) / steps;
+        let stepDuration = duration / steps;
 
-    let timer = setInterval(function () {
-        current += increment;
+        let timer = setInterval(function () {
+            current += increment;
 
-        obj.innerText =  
-            "$ " + current.toLocaleString("en-US", {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2
-            });
+            obj.innerText =
+                "$ " + current.toLocaleString("en-US", {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                });
 
-        if (current >= end) {
-            // Ensure final value is accurate
-            obj.innerText = "$ " + end.toLocaleString("en-US", {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2
-            });
-            clearInterval(timer);
+            if (current >= end) {
+                // Ensure final value is accurate
+                obj.innerText = "$ " + end.toLocaleString("en-US", {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                });
+                clearInterval(timer);
 
-            // Animation is complete
-            button.disabled = false;
-            button.style.backgroundColor = 'rgba(247, 147, 26, 1)';
-        }
-    }, stepDuration);
-}
+                // Animation is complete
+                button.disabled = false;
+                button.style.backgroundColor = 'rgba(247, 147, 26, 1)';
+            }
+        }, stepDuration);
+    }
 
-counter("betrag", randomProduct.originalPreis, parseFloat(randomProduct.bitcoinAmount * btcPrice));
+    counter("betrag", randomProduct.originalPreis, parseFloat(randomProduct.bitcoinAmount * btcPrice));
 
 };
 
@@ -240,7 +240,7 @@ let buttonTextArray = [
     '"Will you ever see the opportunity you ignored?"',
     '"The power of Bitcoin is in its idea."',
     '"The idea whose time has come cannot be stopped."'
-    
+
 ];
 
 
@@ -910,18 +910,18 @@ let familyStuff = [
         bitcoinAmount: 0.01093563,
         releaseDatum: "04.05.2022",
         produktBild: "produkte/FamilyStuff/Guitar.png"
-    }, 
+    },
     {
         pruduktName: "Silhouette Cameo 4",
         artikel: "of a",
         originalPreis: 288.40,
         bitcoinAmount: 0.00975806,
         releaseDatum: "30.06.2021",
-        produktBild: "produkte/FamilyStuff/SilhouetteCameo4.png" 
+        produktBild: "produkte/FamilyStuff/SilhouetteCameo4.png"
     },
     {
         pruduktName: "EPSON EcoTank ET-2850",
-        artikel: "of an", 
+        artikel: "of an",
         originalPreis: 271.26,
         bitcoinAmount: 0.01395286,
         releaseDatum: "02.10.2022",
@@ -991,8 +991,8 @@ let familyStuff = [
         releaseDatum: "17.11.2020",
         produktBild: "produkte/FamilyStuff/1ozGold.png"
     }
-    
-    
+
+
     /*
     {
         pruduktName: "Stuff (Parents)",
@@ -1308,16 +1308,16 @@ let what = [
 
 // console.log(consoles[1].originalPreis);
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const trigger = document.getElementById('trigger');
     const overlay = document.getElementById('overlay');
-  
-    trigger.addEventListener('click', function() {
-      overlay.style.display = 'flex';
+
+    trigger.addEventListener('click', function () {
+        overlay.style.display = 'flex';
     });
 
-    overlay.addEventListener('click', function() {
-      overlay.style.display = 'none';
+    overlay.addEventListener('click', function () {
+        overlay.style.display = 'none';
     });
 });
 
