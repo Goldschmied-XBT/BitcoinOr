@@ -209,7 +209,6 @@ function buttonPress() {
 
 };
 
-
 let buttonTextArray = [
     '"Bitcoin is too risky."',
     '"Bitcoin is too volatile" (yes, to the upside)"',
