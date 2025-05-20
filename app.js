@@ -79,13 +79,13 @@ function buttonPress() {
     const randomProductArray = [];
 
     // If BTC != 100K disable family toggle
-    if (btcPrice < 100_000) {
+    /* if (btcPrice < 100_000) {
         document.getElementById('arrayFamily').checked = false;
         console.log(btcPrice);
-    }
+    } */
 
     // If  all unchecked just check Diverses
-    if (!document.getElementById('arrayConsoles').checked && !document.getElementById('arraySmartphones').checked && !document.getElementById('arrayDiverses').checked && !document.getElementById('arrayFamily').checked && !document.getElementById('arrayCars').checked && !document.getElementById('arrayWhat').checked) {
+    if (!document.getElementById('arrayConsoles').checked && !document.getElementById('arraySmartphones').checked && !document.getElementById('arrayDiverses').checked /* && !document.getElementById('arrayFamily').checked */ && !document.getElementById('arrayCars').checked && !document.getElementById('arrayWhat').checked) {
         console.log("test1111");
         document.getElementById('arrayDiverses').checked = true;
         /*         document.getElementById('arrayWhat').checked = true;
@@ -107,10 +107,10 @@ function buttonPress() {
         randomProductArray.push(...diverses);
     }
 
-    if (document.getElementById('arrayFamily').checked) {
+    /* if (document.getElementById('arrayFamily').checked) {
         randomProductArray.push(...familyStuff);
     }
-
+ */
     if (document.getElementById('arrayCars').checked) {
         randomProductArray.push(...cars);
     }
