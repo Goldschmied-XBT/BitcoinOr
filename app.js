@@ -210,6 +210,8 @@ function buttonPress() {
 };
 
 let buttonTextArray = [
+    'Next'
+    /* 
     '"Bitcoin is too risky."',
     '"Bitcoin is too volatile" (yes, to the upside)"',
     '"Face the facts; I had to do it too!"',
@@ -239,7 +241,7 @@ let buttonTextArray = [
     '"Will you ever see the opportunity you ignored?"',
     '"The power of Bitcoin is in its idea."',
     '"The idea whose time has come cannot be stopped."'
-
+  */
 ];
 
 
